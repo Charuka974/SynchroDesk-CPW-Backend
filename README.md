@@ -1,4 +1,4 @@
-# Backend
+# SynchroDesk Backend
 
 This is the backend API for the SynchroDesk project.  
 It handles data processing, authentication, and communication with the database.
