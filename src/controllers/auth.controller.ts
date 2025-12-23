@@ -8,6 +8,7 @@ import dotenv from "dotenv"
 // import { sendEmail } from "../utils/emails"
 import { forgotPasswordTemplate } from "../types/email/forgot-password-email"
 import { v4 as uuidv4 } from "uuid";
+import { sendEmail } from "../utils/resendEmails"
 
 dotenv.config()
 
@@ -215,6 +216,16 @@ export const forgotPassword = async (req: Request, res: Response) => {
     //     resetUrl,
     //   }),
     // });
+
+    await sendEmail({
+      to: user.email,
+      subject: "Reset your Synchro Desk password",
+      html: forgotPasswordTemplate({
+        name: user.name,
+        resetUrl,
+      }),
+    });
+
 
     res.status(200).json({
       message: "Password reset email sent",
