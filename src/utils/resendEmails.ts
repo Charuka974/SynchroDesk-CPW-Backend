@@ -26,7 +26,7 @@ export const sendEmail = async ({
   }
 
   return resend.emails.send({
-    from: "Synchro Desk <onboarding@resend.dev>",
+    from: "onboarding@resend.dev",
     to,
     subject,
     ...(html ? { html } : { text: text! }),
