@@ -207,15 +207,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
     await user.save();
 
     const resetUrl = `https://synchro-desk-cpw-frontend.vercel.app/reset-password/${token}`;
- 
-    // await sendEmail({
-    //   to: user.email,
-    //   subject: "Reset your Synchro Desk password",
-    //   html: forgotPasswordTemplate({
-    //     name: user.name,
-    //     resetUrl,
-    //   }),
-    // });
+
 
     await sendEmail({
       to: user.email,
